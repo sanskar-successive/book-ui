@@ -1,0 +1,9 @@
+.filter-button {
+  background-color: #7c7c7c;
+  margin-top: auto;
+  border-radius: 20px;
+}
+
+.filter-button:hover {
+  background: #0e0d0d;
+}
