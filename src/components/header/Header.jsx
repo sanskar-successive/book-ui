@@ -4,7 +4,7 @@ import Search from "../search/Search";
 
 const Header = () => {
   return (
-    <header className="sticky-header">
+    <header role="header" className="sticky-header">
       <div className="header-content">
         <div>
           <Search />

@@ -9,8 +9,8 @@ import Filter from "../../components/filter/Filter";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true); 
-  const [filterOpen, setFilterOpen] = useState(false)
+  const [loading, setLoading] = useState(true);
+  const [filterOpen, setFilterOpen] = useState(false);
 
   const location = useLocation();
 
@@ -27,9 +27,9 @@ const BookList = () => {
     }
   };
 
-  const toggleFilter = ()=>{
-    setFilterOpen(!filterOpen)
-  }
+  const toggleFilter = () => {
+    setFilterOpen(!filterOpen);
+  };
 
   useEffect(() => {
     fetchApiResponse();
@@ -43,14 +43,20 @@ const BookList = () => {
         ) : (
           <table>
             <thead>
-          
-                <Sort />
-                <button className="filter-button" onClick={toggleFilter}>
-                  <FaFilter /> Filters
-                </button>
+              <Sort />
+              <button
+                style={{
+                  position: "relative",
+                  top: "-43px",
+                  right: "-1500px",
+                  backgroundColor: "#7c7c7c",
+                }}
+                onClick={toggleFilter}
+              >
+                <FaFilter /> Filters
+              </button>
 
-                {filterOpen && <Filter/>}
-              
+              {filterOpen && <Filter />}
             </thead>
 
             <tbody>

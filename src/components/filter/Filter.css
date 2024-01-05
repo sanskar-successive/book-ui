@@ -1,14 +1,32 @@
-.filterContainer {
+/* .filterContainer {
     width: 300px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  } */
+
+  .filterContainer {
+    position: absolute;
+    top: 55%;
+    left: 83.5%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it appears above other content */
   }
   
+  /* Rest of your styles remain unchanged */
+  
+  
   .filterTitle {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
   }
@@ -16,7 +34,7 @@
   .filterInput {
     width: 100%;
     padding: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
     box-sizing: border-box;
   }
   
@@ -26,7 +44,7 @@
   
   .filterLabel {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: -10px;
   }
   
   .filterButton {
