@@ -6,28 +6,35 @@ import { useParams } from "react-router-dom";
 const BookDetails = () => {
   const { bookId } = useParams();
 
-  console.log(bookId);
-
   const [book, setBook] = useState();
-  const [loading ,setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const fetchBookData = async () => {
-    const apiResponse = await axios.get(
-      `http://localhost:5000/api/books/${bookId}`
-    );
-    setBook(apiResponse.data);
-    setLoading(false);
+    try {
+      const apiResponse = await axios.get(
+        `http://localhost:5000/api/books/${bookId}`
+      );
+      setBook(apiResponse.data.book);
+    } catch (error) {
+      console.log("some error occured", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     fetchBookData();
-  }, []);
+  }, [bookId]);
 
-  if(loading) return <h3>Loading...</h3>
+  if (loading) return <h3>Loading...</h3>;
 
   return (
     <div className="book-details-container">
-      <img src={book.coverImage} alt={`${book.title} cover`} className="book-cover" />
+      <img
+        src={book.coverImage}
+        alt={`${book.title} cover`}
+        className="book-cover"
+      />
       <table className="book-table">
         <tbody>
           <tr>
@@ -52,7 +59,7 @@ const BookDetails = () => {
           </tr>
           <tr>
             <td>Language</td>
-            <td>{book.moreDetails.language}</td>
+            <td>{book.moreDetails.text_language}</td>
           </tr>
           <tr>
             <td>Publisher</td>
@@ -60,7 +67,9 @@ const BookDetails = () => {
           </tr>
           <tr>
             <td>First Published</td>
-            <td>{new Date(book.moreDetails.firstPublished).toLocaleDateString()}</td>
+            <td>
+              {new Date(book.moreDetails.firstPublished).toLocaleDateString()}
+            </td>
           </tr>
 
           <tr>
@@ -85,14 +94,13 @@ const BookDetails = () => {
 
           <tr>
             <td>Verified</td>
-            <td>{book.moreDetails.verified}</td>
+            <td>{book.moreDetails.verified.toString()}</td>
           </tr>
 
           <tr>
             <td>Cover Image URL</td>
             <td>{book.coverImage}</td>
           </tr>
-          
         </tbody>
       </table>
     </div>

@@ -19,7 +19,8 @@ const BookList = () => {
       const apiResponse = await axios.get(
         `http://localhost:5000/api/search${location.search}`
       );
-      setBooks(apiResponse.data);
+
+      setBooks(apiResponse.data.books);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -64,8 +65,7 @@ const BookList = () => {
                 <td>
                   {books.length === 0
                     ? "kuch nhi hai"
-                    : books &&
-                      books?.map((item) => <BookListItem item={item} />)}
+                    : books.map((item) => <BookListItem item={item} />)}
                 </td>
               </tr>
             </tbody>

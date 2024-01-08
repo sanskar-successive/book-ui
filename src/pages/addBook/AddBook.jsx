@@ -32,7 +32,7 @@ const AddBook = () => {
     rating: "",
     price: "",
     moreDetails: {
-      language: "",
+      text_language: "",
       publisher: "",
       firstPublished: Date.now(),
       seller: "",
@@ -91,7 +91,7 @@ const AddBook = () => {
     bookRaw.rating = Number(rating);
     bookRaw.moreDetails.description = description;
     bookRaw.moreDetails.fileSize = Number(fileSize);
-    bookRaw.moreDetails.language = language;
+    bookRaw.moreDetails.text_language = language;
     bookRaw.moreDetails.publisher = publisher;
     bookRaw.moreDetails.firstPublished = Date(firstPublished);
     bookRaw.moreDetails.seller = seller;
